@@ -118,7 +118,6 @@ tidy:
 bins:
 	@which bin/tidb-server
 	@which bin/minio
-	@which bin/tidb-lightning
 	@which bin/sync_diff_inspector
 
 .PHONY: build test integration_test tools failpoint-enable failpoint-disable check static lint tidy bins

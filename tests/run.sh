@@ -9,7 +9,7 @@ DUMPLING_TEST_USER=${DUMPLING_TEST_USER:-"root"}
 
 export DUMPLING_TEST_DIR
 export DUMPLING_TEST_USER
-export DUMPLING_TEST_PORT=3306
+export DUMPLING_TEST_PORT=3309
 
 set -eu
 
@@ -19,7 +19,7 @@ PATH="tests/_utils:$PATH"
 
 
 file_should_exist bin/tidb-server
-file_should_exist bin/tidb-lightning
+# file_should_exist bin/tidb-lightning
 file_should_exist bin/dumpling
 file_should_exist bin/sync_diff_inspector
 

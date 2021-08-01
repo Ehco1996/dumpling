@@ -7,7 +7,7 @@ shift
 
 set -e
 
-echo "[$(date)] Executing SQL: $SQL"
+echo "[$(date)] Executing SQL: $SQL $DUMPLING_TEST_USER $DUMPLING_TEST_PORT"
 
 mysql \
   -u "$DUMPLING_TEST_USER" \

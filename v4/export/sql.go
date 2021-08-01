@@ -197,6 +197,8 @@ func ListAllDatabasesTables(tctx *tcontext.Context, db *sql.Conn, databaseNames 
 		for _, schema = range databaseNames {
 			dbTables[schema] = make([]*TableInfo, 0)
 			query := fmt.Sprintf(queryTemplate, escapeString(schema))
+			println("----------")
+			println(query)
 			rows, err := db.QueryContext(tctx, query)
 			if err != nil {
 				return nil, errors.Annotatef(err, "sql: %s", query)

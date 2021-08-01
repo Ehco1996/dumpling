@@ -51,6 +51,7 @@ type Dumper struct {
 // NewDumper returns a new Dumper
 func NewDumper(ctx context.Context, conf *Config) (*Dumper, error) {
 	tctx, cancelFn := tcontext.Background().WithContext(ctx).WithCancel()
+	conf.ReadTimeout = time.Second * 300
 	d := &Dumper{
 		tctx:                      tctx,
 		conf:                      conf,
@@ -863,6 +864,7 @@ func prepareTableListToDump(tctx *tcontext.Context, conf *Config, db *sql.Conn) 
 	}
 	// for consistency lock, we need to build the tables to dump as soon as possible
 	asap := conf.Consistency == consistencyTypeLock
+	println("asap", asap, conf.Consistency)
 	conf.Tables, err = ListAllDatabasesTables(tctx, db, databases, asap, tableTypes...)
 	if err != nil {
 		return err

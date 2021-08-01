@@ -86,6 +86,7 @@ func (c *ConsistencyFlushTableWithReadLock) Setup(tctx *tcontext.Context) error 
 		return errors.New("'flush table with read lock' cannot be used to ensure the consistency in TiDB")
 	}
 	return FlushTableWithReadLock(tctx, c.conn)
+
 }
 
 // TearDown implements ConsistencyController.TearDown
