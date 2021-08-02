@@ -1035,6 +1035,7 @@ func openSQLDB(d *Dumper) error {
 // detectServerInfo is an initialization step of Dumper.
 func detectServerInfo(d *Dumper) error {
 	db, conf := d.dbHandle, d.conf
+	defer db.Close()
 	versionStr, err := SelectVersion(db)
 	if err != nil {
 		conf.ServerInfo = ServerInfoUnknown
